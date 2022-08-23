@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/api/v1/book")
 public class BookController {
 
     private BookService bookService;
 
-    @GetMapping("book")
+    @GetMapping("")
     public Flux<Book> getAllBooks() {
         return bookService.getAllBooks();
     }
