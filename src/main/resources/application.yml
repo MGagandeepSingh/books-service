@@ -1,0 +1,32 @@
+#---------------------------------
+# Environment based configuration
+#---------------------------------
+root_logger: INFO
+service_logger: DEBUG
+database_uri: mongodb://admin:admin@localhost:27017
+
+#----------------------
+# Spring configuration
+#----------------------
+server:
+  port: 8080
+
+logging:
+  level:
+    root: ${root_logger}
+    me.gagan.service: ${service_logger}
+
+spring:
+  config:
+    import: books.yml
+  banner:
+    location: banner.txt
+  main:
+    banner-mode: CONSOLE
+  data:
+    mongodb:
+      uri: ${database_uri}
+      database: library-management
+
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
